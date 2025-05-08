@@ -23,12 +23,26 @@ public class ControlerVerificarDni {
 
     public  ControlerVerificarDni(VerificarDni vista) {
         this.vista = vista;
-        String dni = vista.getTxtDni().getText();
- 	    RepositorioVerificarDni.verificarUsuario(dni);
-    	vista.dispose();
-    	VistaActualizarDatos v = new VistaActualizarDatos(); 
-    	ControlerActualizarDatos c=new ControlerActualizarDatos(v);
-		c.iniciar();
+        
+		this.vista.getInsertar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	String dni = vista.getTxtDni().getText();
+
+                boolean existe = RepositorioVerificarDni.verificarUsuario(dni); // debe devolver boolean
+
+                if (!existe) {
+                    vista.mostrarErrorTipo("DNI no encontrado.");
+                    return; 
+                }
+
+                RepositorioEliminarUsuario.eliminarUsuario(dni);
+                vista.dispose();
+                VistaActualizarDatos v = new VistaActualizarDatos(); 
+                ControlerActualizarDatos c = new ControlerActualizarDatos(v);
+                c.iniciar();
+            }
+        });
     }
 
 

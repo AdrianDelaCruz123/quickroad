@@ -20,8 +20,7 @@ public class RepositorioVerificarDni {
 			System.out.println("Hubo un error");
 			e.printStackTrace();
 		}
-		//Desde aqui se conectara a la BD y hara la consulta pertinente para verificar que 
-		// el usuario este registrado.
+		
 		return false;
 	}
 		

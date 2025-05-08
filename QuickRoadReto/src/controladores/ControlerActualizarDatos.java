@@ -33,7 +33,6 @@ public class ControlerActualizarDatos {
          	        vista.mostrarErrorTipo("El tipo debe ser 'Admin' o 'Empleado'.");
          	        return; 
          	    }
-         	    RepositorioEliminarUsuario.eliminarUsuario(dni);
          	    RepositorioAñadirUsuario.añadirUsuario(usuario, pass, ape, dni, tel, dir, tipo);
             	vista.dispose();
             	VistaLogin v = new VistaLogin(); 

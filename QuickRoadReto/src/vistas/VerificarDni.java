@@ -65,4 +65,7 @@ public class VerificarDni extends JFrame {
     public JButton getAtras() {
         return atras;
     }
+    public JButton getInsertar() {
+        return insertar;
+    }
 }

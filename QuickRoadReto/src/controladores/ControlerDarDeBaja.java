@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import repositorios.RepositorioEliminarUsuario;
 import repositorios.RepositorioUsuario;
+import repositorios.RepositorioVerificarDni;
 import vistas.VistaDarDeBaja;
 import vistas.VistaLogin;
 
@@ -20,7 +21,12 @@ public class ControlerDarDeBaja {
             @Override
             public void actionPerformed(ActionEvent e) {
             	String dni = vista.getDni().getText();
+            	boolean existe = RepositorioVerificarDni.verificarUsuario(dni); // debe devolver boolean
 
+                if (!existe) {
+                    vista.mostrarErrorTipo("DNI no encontrado.");
+                    return; 
+                }
             	RepositorioEliminarUsuario.eliminarUsuario(dni);
             	vista.dispose();
             	VistaLogin v = new VistaLogin(); 

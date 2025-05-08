@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 
 import repositorios.RepositorioUsuario;
 import vistas.VerificarDni;
+import vistas.VistaBienvenidaAdmin;
+import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaDarDeBaja;
 import vistas.VistaLogin;
 import vistas.VistaRegistrar;
@@ -26,7 +28,19 @@ public class ControlerLogin {
             @Override
             public void actionPerformed(ActionEvent e) {
                verificarUsuario();
-            
+               vista.dispose();
+               
+               if (!RepositorioUsuario.verificarEstadoUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
+            	   //vista empleado
+            	   VistaBienvenidaEmpleado v = new VistaBienvenidaEmpleado(); 
+            	   ControlerBienvenidaEmpleado c=new ControlerBienvenidaEmpleado(v);
+               		c.iniciar();
+               }else {
+            	   //vista admin
+            	   VistaBienvenidaAdmin v = new VistaBienvenidaAdmin(); 
+            	   ControlerBienvenidaAdmin c=new ControlerBienvenidaAdmin(v);
+               		c.iniciar();
+               }
             }
         });
         

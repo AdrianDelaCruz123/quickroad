@@ -29,6 +29,27 @@ public class RepositorioUsuario {
 		// el usuario este registrado.
 		return false;
 	}
+	
+	public static boolean verificarEstadoUsuario(String usuario, String password){
+		String query = "SELECT * FROM camionero WHERE nombre=? AND contraseña=? AND tipo='ADMIN'";
+		
+		try (PreparedStatement preparedStatement = ConectorBD.conexion.prepareStatement(query)) {
+			
+			preparedStatement.setString(1, usuario);
+			preparedStatement.setString(2, password);
+            
+			ResultSet resultSet = preparedStatement.executeQuery(); 
+			if (resultSet.next()) {
+		         	return true;
+			}
+		} catch (SQLException e) {
+			System.out.println("Hubo un error");
+			e.printStackTrace();
+		}
+		//Desde aqui se conectara a la BD y hara la consulta pertinente para verificar que 
+		// el usuario este registrado.
+		return false;
+	}
 		
     
 

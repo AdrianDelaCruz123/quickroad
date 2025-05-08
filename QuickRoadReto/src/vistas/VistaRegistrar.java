@@ -39,10 +39,7 @@ public class VistaRegistrar extends JFrame {
         contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         JPanel panel = new JPanel(new GridLayout(10, 2, 5, 5));
-        
-        lblErrorTipo = new JLabel(""); 
-        lblErrorTipo.setForeground(Color.RED); 
-        panel.add(lblErrorTipo);
+      
         
         panel.add(new JLabel("Usuario"));
         usuario = new JTextField(10);
@@ -71,6 +68,10 @@ public class VistaRegistrar extends JFrame {
         panel.add(new JLabel("Contraseña"));
         password = new JPasswordField(10);
         panel.add(password);
+        
+        lblErrorTipo = new JLabel(""); 
+        lblErrorTipo.setForeground(Color.RED); 
+        panel.add(lblErrorTipo);
 
         panel.add(new JLabel("")); 
         registrar = new JButton("Registrar");

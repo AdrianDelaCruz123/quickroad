@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import repositorios.RepositorioUsuario;
+import repositorios.Sesion;
 import vistas.VerificarDni;
 import vistas.VistaBienvenidaAdmin;
 import vistas.VistaBienvenidaEmpleado;
@@ -27,20 +28,29 @@ public class ControlerLogin {
         this.vista.getBtnRegistrar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               verificarUsuario();
                vista.dispose();
-               
-               if (!RepositorioUsuario.verificarEstadoUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
-            	   //vista empleado
-            	   VistaBienvenidaEmpleado v = new VistaBienvenidaEmpleado(); 
-            	   ControlerBienvenidaEmpleado c=new ControlerBienvenidaEmpleado(v);
-               		c.iniciar();
-               }else {
-            	   //vista admin
-            	   VistaBienvenidaAdmin v = new VistaBienvenidaAdmin(); 
-            	   ControlerBienvenidaAdmin c=new ControlerBienvenidaAdmin(v);
-               		c.iniciar();
+               if (RepositorioUsuario.verificarUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
+                   Sesion.setUsuarioActual(vista.getTxtUsuario().getText()); // Iniciar sesión
+                   
+                   JOptionPane.showMessageDialog(null, "Bienvenido " + vista.getTxtUsuario().getText());
+                   
+                    if (!RepositorioUsuario.verificarEstadoUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
+	            	   //vista empleado
+	            	   VistaBienvenidaEmpleado v = new VistaBienvenidaEmpleado(); 
+	            	   ControlerBienvenidaEmpleado c=new ControlerBienvenidaEmpleado(v);
+               			c.iniciar();
+                    }else {
+	            	   //vista admin
+	            	   VistaBienvenidaAdmin v = new VistaBienvenidaAdmin(); 
+	            	   ControlerBienvenidaAdmin c=new ControlerBienvenidaAdmin(v);
+               			c.iniciar();
                }
+                   
+                   vista.dispose(); // Cerrar ventana de login
+               } else {
+                   JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+               }
+              
             }
         });
         

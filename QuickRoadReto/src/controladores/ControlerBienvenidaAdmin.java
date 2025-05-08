@@ -15,28 +15,28 @@ public class ControlerBienvenidaAdmin {
 
 	public ControlerBienvenidaAdmin(VistaBienvenidaAdmin vista) {
 		this.vista = vista;
-		
-		if (!Sesion.estaLogueado()) {
-		    JOptionPane.showMessageDialog(null, "Debes iniciar sesión primero.");
-		    new VistaLogin().setVisible(true);
-		    vista.dispose(); 
-		    return;
-		}
-		
+
 		this.vista.getAtras().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();
             	VistaLogin v = new VistaLogin(); 
-            	ControlerLogin c=new ControlerLogin(v);
+            	ControlerLogin c = new ControlerLogin(v);
 				c.iniciar();
             }
         });
-		
 	}
-	
 
 	public void iniciar() {
-	   vista.setVisible(true);
+		if (!Sesion.estaLogueado()) {
+		    JOptionPane.showMessageDialog(null, "Debes iniciar sesión primero.");
+		    VistaLogin login = new VistaLogin(); 
+		    ControlerLogin c = new ControlerLogin(login);
+		    c.iniciar();
+		    vista.dispose();
+		    return;
+		}
+		
+		vista.setVisible(true);
 	}
 }

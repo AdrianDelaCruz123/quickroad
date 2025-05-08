@@ -7,20 +7,20 @@ public class Usuario {
 	private int telefono;
     private String direccion;
     private String contraseña;
-    public enum Estado {
-        ACTIVO,
-        INACTIVO,
-        SUSPENDIDO
+    public enum Tipo {
+        
+        ADMIN,EMPLEADO
     }
-    private Estado estado;
-	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, Estado estado) {
+    private Tipo tipo;
+	
+	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, Tipo tipo) {
 		super();
 		this.nombre = nombre;
 		this.dni = dni;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.contraseña = contraseña;
-		this.estado = estado;
+		this.tipo = tipo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -52,12 +52,13 @@ public class Usuario {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	public Estado getEstado() {
-		return estado;
+	public Tipo getTipo() {
+		return tipo;
 	}
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
+	
     
 	
 }

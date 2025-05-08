@@ -27,7 +27,7 @@ public class ControlerBienvenidaEmpleado {
 				c.iniciar();
             }
         });
-		this.vista.getAtras().addActionListener(new ActionListener() {
+		this.vista.get().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();

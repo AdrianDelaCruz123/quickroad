@@ -49,6 +49,10 @@ public class ControlerLogin {
                    vista.dispose(); // Cerrar ventana de login
                } else {
                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+                   
+   					VistaLogin v = new VistaLogin(); 
+   					ControlerLogin c=new ControlerLogin(v);
+   					c.iniciar();
                }
               
             }

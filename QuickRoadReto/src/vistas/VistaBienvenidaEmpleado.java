@@ -38,7 +38,7 @@ public class VistaBienvenidaEmpleado extends JFrame {
    
    
 
-	public JButton getRegistrar() {
+	public JButton getPaquete() {
 		return registrarse;
 	}
 public void setRegistrar(JButton registrar) {
@@ -58,7 +58,7 @@ public void setRegistrar(JButton registrar) {
 		JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5)); 
 		
 		panel.add(new JLabel("")); 
-		registrarse = new JButton("Añadir paquete");
+		registrarse = new JButton("Ver paquetes");
 		panel.add(registrarse);
 		
 		panel.add(new JLabel("")); 

@@ -51,7 +51,7 @@ public void setRegistrar(JButton registrar) {
 		setContentPane(contentPane);
 		contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5)); 
+		JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5)); 
 		
 		panel.add(new JLabel("")); 
 		registrarse = new JButton("Eliminar usuario");

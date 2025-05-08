@@ -14,9 +14,13 @@ public class VistaBienvenidaAdmin extends JFrame{
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private JButton registrarse;
+	private JButton verUsuarios;
 	private JButton verCamiones;
 	private JButton atras;
-
+	
+	public JButton getVerUsuarios() {
+    	return verUsuarios;
+    }
 	
 	public JButton getAtras() {
     	return atras;
@@ -56,6 +60,10 @@ public void setRegistrar(JButton registrar) {
 		panel.add(new JLabel("")); 
 		verCamiones = new JButton("Bloquear Usuario");
 		panel.add(verCamiones);
+		
+		panel.add(new JLabel("")); 
+		verUsuarios = new JButton("Ver usuarios");
+		panel.add(verUsuarios);
 		
 		panel.add(new JLabel("")); 
 		atras = new JButton("Atras");

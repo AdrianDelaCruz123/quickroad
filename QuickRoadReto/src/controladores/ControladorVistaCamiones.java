@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import repositorios.RepositorioAñadirUsuario;
+import Clases.Camion;
 import repositorios.Sesion;
-import vistas.VistaActualizarDatos;
 import vistas.VistaBienvenidaEmpleado;
+import vistas.VistaCamion;
 import vistas.VistaCamiones;
 import vistas.VistaLogin;
 
-public class ControlerBienvenidaEmpleado {
-	private VistaBienvenidaEmpleado vista;
+public class ControladorVistaCamiones {
+	private VistaCamiones vista;
 
-	public ControlerBienvenidaEmpleado(VistaBienvenidaEmpleado vista) {
+	public ControladorVistaCamiones(VistaCamiones vista) {
 		this.vista = vista;
 
 		this.vista.getAtras().addActionListener(new ActionListener() {
@@ -36,15 +36,15 @@ public class ControlerBienvenidaEmpleado {
 				c.iniciar();
             }
         });
-		this.vista.getCamiones().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	vista.dispose();
-            	VistaCamiones v = new VistaCamiones(); 
-            	ControladorVistaCamiones c = new ControladorVistaCamiones(v);
+		this.vista.getJlistProductos().addListSelectionListener(e -> {
+
+			if (!e.getValueIsAdjusting()) {
+				Camion camionSeleccionado = this.vista.getJlistProductos().getSelectedValue();
+				VistaCamion v = new VistaCamion(camionSeleccionado);
+				ControladorVistaCamion c = new ControladorVistaCamion(v);
 				c.iniciar();
-            }
-        });
+			}
+		});
 	}
 
 	public void iniciar() {

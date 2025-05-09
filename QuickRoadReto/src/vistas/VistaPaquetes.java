@@ -30,7 +30,7 @@ public class VistaPaquetes extends JFrame {
 
 	public VistaPaquetes() {
 		this.usuario = usuario;
-		setSize(300, 200);
+		setSize(600, 400);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

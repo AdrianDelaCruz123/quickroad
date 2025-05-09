@@ -7,13 +7,9 @@ public class Usuario {
 	private int telefono;
     private String direccion;
     private String contraseña;
-    public enum Tipo {
-        
-        ADMIN,EMPLEADO
-    }
-    private Tipo tipo;
+    public String tipo;
 	
-	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, Tipo tipo) {
+	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, String tipo) {
 		super();
 		this.nombre = nombre;
 		this.dni = dni;
@@ -52,11 +48,16 @@ public class Usuario {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	public Tipo getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(Tipo tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	@Override
+	public String toString() {
+		return "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", direccion=" + direccion
+				+ ", contraseña=" + contraseña + ", tipo=" + tipo + "]";
 	}
 	
     

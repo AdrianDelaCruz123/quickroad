@@ -27,11 +27,13 @@ public class VistaCamion extends JFrame {
 	private JLabel capacidad;
 	private JLabel estado;
 	private JButton botonSalir;
-	private JButton descargarFichero;
+	private JButton activo;
+	private JButton mantenimiento;
+	private JButton inactivo;
 
 	public VistaCamion(Camion camion) {
 		super("Detalles de " + camion.getMarca()+" "+camion.getModelo());
-		setSize(300, 200);
+		setSize(500, 400);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
@@ -66,8 +68,24 @@ public class VistaCamion extends JFrame {
 		botonSalir = new JButton("Volver");
 		detallesCamion.add(botonSalir, BorderLayout.SOUTH);
 
-
-		add(detallesCamion);
+		
+		contentPane.add(detallesCamion, BorderLayout.CENTER);
+		
+		
+		JPanel modificarCamion = new JPanel();
+		
+		activo = new JButton("Activo");
+		modificarCamion.add(activo, BorderLayout.WEST);
+		
+		inactivo = new JButton("Inactivo");
+		modificarCamion.add(inactivo, BorderLayout.CENTER);
+		
+		mantenimiento = new JButton("Mantenimiento");
+		modificarCamion.add(mantenimiento, BorderLayout.EAST);
+		
+		contentPane.add(modificarCamion, BorderLayout.SOUTH);
+		
+		
 
 	}
 
@@ -90,10 +108,25 @@ public class VistaCamion extends JFrame {
 	public JLabel getEstado() {
 		return estado;
 	}
+	
+	public JLabel getMatricula() {
+		return matricula;
+	}
 
 
 	public JButton getAtras() {
 		return botonSalir;
+	}
+	
+	public JButton getMantenimiento() {
+		return mantenimiento;
+	}
+	
+	public JButton getActivo() {
+		return activo;
+	}
+	public JButton getInactivo() {
+		return inactivo;
 	}
 
 

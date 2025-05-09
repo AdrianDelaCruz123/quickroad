@@ -14,8 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Clases.Camion;
+import Clases.Usuario;
 
-public class VistaCamiones extends JFrame {
+public class VistaUsuarios extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -23,10 +24,10 @@ public class VistaCamiones extends JFrame {
 	private JButton botonBuscar;
 	private JButton botonSalir;
 	private String usuario;
-	private JList<Camion> JlistProductos;
-	private DefaultListModel<Camion> modeloLista;
+	private JList<Usuario> JlistProductos;
+	private DefaultListModel<Usuario> modeloLista;
 
-	public VistaCamiones() {
+	public VistaUsuarios() {
 		setSize(600, 400);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,12 +37,12 @@ public class VistaCamiones extends JFrame {
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 
-		ArrayList<Camion> listaProductos = repositorios.MostrarCamion.mostrarCamiones();
+		ArrayList<Usuario> listaUsuarios = repositorios.MostrarUsuarios.MostrarPaquetes();
 
-		modeloLista = new DefaultListModel<Camion>();
+		modeloLista = new DefaultListModel<Usuario>();
 
-		for (Camion camion : listaProductos) {
-			modeloLista.addElement(camion);
+		for (Usuario usuario : listaUsuarios) {
+			modeloLista.addElement(usuario);
 		}
 
 		JlistProductos = new JList(modeloLista);
@@ -57,7 +58,7 @@ public class VistaCamiones extends JFrame {
 
 	}
 
-	public DefaultListModel<Camion> getModeloLista() {
+	public DefaultListModel<Usuario> getModeloLista() {
 		return modeloLista;
 	}
 
@@ -79,11 +80,11 @@ public class VistaCamiones extends JFrame {
 		return usuario;
 	}
 
-	public JList<Camion> getJlistProductos() {
+	public JList<Usuario> getJlistProductos() {
 		return JlistProductos;
 	}
 
-	public void setJlistProductos(JList<Camion> jlistProductos) {
+	public void setJlistProductos(JList<Usuario> jlistProductos) {
 		JlistProductos = jlistProductos;
 	}
 

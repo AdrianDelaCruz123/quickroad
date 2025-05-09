@@ -13,9 +13,9 @@ public class VistaBienvenidaAdmin extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton btnNewButton;
-	private JButton registrarse;
+	private JButton elimUsuario;
 	private JButton verUsuarios;
-	private JButton verCamiones;
+	private JButton bloqUsuarios;
 	private JButton atras;
 	
 	public JButton getVerUsuarios() {
@@ -25,8 +25,8 @@ public class VistaBienvenidaAdmin extends JFrame{
 	public JButton getAtras() {
     	return atras;
     }
-	public JButton getCamiones() {
-    	return verCamiones;
+	public JButton getBloqUsuarios() {
+    	return bloqUsuarios;
     }
     public JButton getBtnRegistrar() {
     	return btnNewButton;
@@ -34,11 +34,11 @@ public class VistaBienvenidaAdmin extends JFrame{
    
    
 
-	public JButton getRegistrar() {
-		return registrarse;
+	public JButton getElimUsuario() {
+		return elimUsuario;
 	}
 public void setRegistrar(JButton registrar) {
-	this.registrarse = registrar;
+	this.elimUsuario = registrar;
 }
 	
 	public VistaBienvenidaAdmin() {
@@ -54,12 +54,12 @@ public void setRegistrar(JButton registrar) {
 		JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5)); 
 		
 		panel.add(new JLabel("")); 
-		registrarse = new JButton("Eliminar usuario");
-		panel.add(registrarse);
+		elimUsuario = new JButton("Eliminar usuario");
+		panel.add(elimUsuario);
 		
 		panel.add(new JLabel("")); 
-		verCamiones = new JButton("Bloquear Usuario");
-		panel.add(verCamiones);
+		bloqUsuarios = new JButton("Bloquear Usuario");
+		panel.add(bloqUsuarios);
 		
 		panel.add(new JLabel("")); 
 		verUsuarios = new JButton("Ver usuarios");

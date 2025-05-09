@@ -11,6 +11,8 @@ import vistas.VistaActualizarDatos;
 import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaCamiones;
 import vistas.VistaLogin;
+import vistas.VistaPaquete;
+import vistas.VistaPaquetes;
 
 public class ControlerBienvenidaEmpleado {
 	private VistaBienvenidaEmpleado vista;
@@ -27,12 +29,12 @@ public class ControlerBienvenidaEmpleado {
 				c.iniciar();
             }
         });
-		this.vista.get().addActionListener(new ActionListener() {
+		this.vista.getPaquete().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();
-            	VistaLogin v = new VistaLogin(); 
-            	ControlerLogin c = new ControlerLogin(v);
+            	VistaPaquetes v = new VistaPaquetes(); 
+            	ControladorVistaPaquetes c = new ControladorVistaPaquetes(v);
 				c.iniciar();
             }
         });

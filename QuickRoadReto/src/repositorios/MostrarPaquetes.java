@@ -18,12 +18,12 @@ public class MostrarPaquetes {
 
 			while (rs.next()) {
 				 int idPaquete = rs.getInt("id_paquete");
-				String decripcion = rs.getString("paquete");
+				String decripcion = rs.getString("descripcion");
 				double peso = rs.getDouble("peso_kg");
 				double alto= rs.getDouble("alto_cm");
 				double ancho = rs.getDouble("ancho_cm");
 				String fecharecogida = rs.getString("fecha_recogida");
-				String fechaEntrega= rs.getString("fehca_entrega");
+				String fechaEntrega= rs.getString("fecha_entrega_real");
 				String estado= rs.getString("estado");
 				
 

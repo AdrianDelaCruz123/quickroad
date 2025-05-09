@@ -6,19 +6,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import Clases.Camion;
+import Clases.Paquete;
 import repositorios.Sesion;
+import vistas.VistaAñadirPaquete;
 import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaCamion;
 import vistas.VistaCamiones;
 import vistas.VistaLogin;
+import vistas.VistaPaquete;
+import vistas.VistaPaquetes;
 
-public class ControladorVistaCamiones {
-	private VistaCamiones vista;
+public class ControladorVistaPaquetes {
+	private VistaPaquetes vista;
 
-	public ControladorVistaCamiones(VistaCamiones vista) {
+	public ControladorVistaPaquetes(VistaPaquetes vista) {
 		this.vista = vista;
 
-		this.vista.getAtras().addActionListener(new ActionListener() {
+		this.vista.getBtnSalir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();
@@ -27,21 +31,21 @@ public class ControladorVistaCamiones {
 				c.iniciar();
             }
         });
-		this.vista.getAtras().addActionListener(new ActionListener() {
+		this.vista.getBotonAñadirProductos().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();
-            	VistaLogin v = new VistaLogin(); 
-            	ControlerLogin c = new ControlerLogin(v);
+            	VistaAñadirPaquete v = new VistaAñadirPaquete(); 
+            	ControladorAñadirPaquete c = new ControladorAñadirPaquete(v);
 				c.iniciar();
             }
         });
 		this.vista.getJlistProductos().addListSelectionListener(e -> {
 
 			if (!e.getValueIsAdjusting()) {
-				Camion camionSeleccionado = this.vista.getJlistProductos().getSelectedValue();
-				VistaCamion v = new VistaCamion(camionSeleccionado);
-				ControladorVistaCamion c = new ControladorVistaCamion(v);
+				Paquete paquetes = this.vista.getJlistProductos().getSelectedValue();
+				VistaPaquete v = new VistaPaquete(paquetes);
+				ControladorVistaPaquete c = new ControladorVistaPaquete(v);
 				c.iniciar();
 			}
 		});

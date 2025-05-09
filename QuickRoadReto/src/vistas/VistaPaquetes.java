@@ -50,13 +50,6 @@ public class VistaPaquetes extends JFrame {
 		JlistProductos = new JList(modeloLista);
 		contentPane.add(new JScrollPane(JlistProductos), BorderLayout.CENTER);
 
-		JPanel panelBuscador = new JPanel();
-		busqueda = new JTextField(10);
-		botonBuscar = new JButton("Buscar");
-		panelBuscador.add(busqueda);
-		panelBuscador.add(botonBuscar);
-
-		contentPane.add(panelBuscador, BorderLayout.NORTH);
 
 		// aquí iran los botones que iran en la parte inferior de la vista
 		JPanel panel = new JPanel(new GridLayout(2, 2, 5, 5));
@@ -67,7 +60,6 @@ public class VistaPaquetes extends JFrame {
 		botonAñadirProductos = new JButton("Añadir productos");
 		panel.add(botonAñadirProductos);
 		
-		contentPane.add(panelBuscador, BorderLayout.NORTH);
 		contentPane.add(panel, BorderLayout.SOUTH);
 
 	}

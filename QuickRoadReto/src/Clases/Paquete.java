@@ -75,6 +75,12 @@ public class Paquete {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+
+	@Override
+	public String toString() {
+		return "idPaquete=" + idPaquete + ", decripcion=" + decripcion;
+	}
 	
 	
 	

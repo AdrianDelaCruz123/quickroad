@@ -1,20 +1,10 @@
 package vistas;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
-import Clases.Camion;
 import Clases.Paquete;
 
 public class VistaPaquete extends JFrame {
@@ -32,53 +22,47 @@ public class VistaPaquete extends JFrame {
 	private JButton botonSalir;
 
 	public VistaPaquete(Paquete paquete) {
-		super("Detalles de " + paquete.getIdPaquete()+" "+paquete.getDecripcion());
-		setSize(300, 200);
+		super("Detalles del Paquete");
+
+		setSize(400, 350);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
-		contentPane.setLayout(new BorderLayout());
+		contentPane = new JPanel(new BorderLayout(10, 10));
+		contentPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 		setContentPane(contentPane);
 
-		JPanel detallesPaquete = new JPanel();
-
-		
+		JPanel detallesPanel = new JPanel(new GridLayout(8, 1, 5, 5));
+		detallesPanel.setBorder(new TitledBorder("Información del Paquete"));
 
 		idPaquete = new JLabel("ID: " + paquete.getIdPaquete());
-		detallesPaquete.add(idPaquete, BorderLayout.CENTER);
-
-		descripcion = new JLabel("Descripcion: " + paquete.getDecripcion());
-		detallesPaquete.add(descripcion, BorderLayout.CENTER);
-
+		descripcion = new JLabel("Descripción: " + paquete.getDecripcion());
 		peso = new JLabel("Peso: " + paquete.getPeso());
-		detallesPaquete.add(peso, BorderLayout.CENTER);
-		
-		alto = new JLabel("Alto: " +paquete.getAlto());
-		detallesPaquete.add(alto, BorderLayout.CENTER);
-		
-		ancho = new JLabel("Ancho: " +paquete.getAncho());
-		detallesPaquete.add(ancho, BorderLayout.CENTER);
-		
-		fecharecogida = new JLabel("Fecha de recogida: " +paquete.getFecharecogida());
-		detallesPaquete.add(fecharecogida, BorderLayout.CENTER);
-		
-		fechaEntrega = new JLabel("Fecha de entrega: " +paquete.getFechaEntrega());
-		detallesPaquete.add(fechaEntrega, BorderLayout.CENTER);
-
+		alto = new JLabel("Alto: " + paquete.getAlto());
+		ancho = new JLabel("Ancho: " + paquete.getAncho());
+		fecharecogida = new JLabel("Fecha de recogida: " + paquete.getFecharecogida());
+		fechaEntrega = new JLabel("Fecha de entrega: " + paquete.getFechaEntrega());
 		estado = new JLabel("Estado: " + paquete.getEstado());
-		detallesPaquete.add(estado, BorderLayout.CENTER);
 
+		detallesPanel.add(idPaquete);
+		detallesPanel.add(descripcion);
+		detallesPanel.add(peso);
+		detallesPanel.add(alto);
+		detallesPanel.add(ancho);
+		detallesPanel.add(fecharecogida);
+		detallesPanel.add(fechaEntrega);
+		detallesPanel.add(estado);
+
+		contentPane.add(detallesPanel, BorderLayout.CENTER);
+
+		// Panel con botón
+		JPanel panelBoton = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		botonSalir = new JButton("Volver");
-		detallesPaquete.add(botonSalir, BorderLayout.SOUTH);
-
-
-		add(detallesPaquete);
-
+		panelBoton.add(botonSalir);
+		contentPane.add(panelBoton, BorderLayout.SOUTH);
 	}
 
+	// Getters
 	public JLabel getIdPaquete() {
 		return idPaquete;
 	}
@@ -94,12 +78,15 @@ public class VistaPaquete extends JFrame {
 	public JLabel getAlto() {
 		return alto;
 	}
+
 	public JLabel getAncho() {
 		return ancho;
 	}
+
 	public JLabel getFechaRecogida() {
 		return fecharecogida;
 	}
+
 	public JLabel getFechaEntrega() {
 		return fechaEntrega;
 	}
@@ -108,10 +95,7 @@ public class VistaPaquete extends JFrame {
 		return estado;
 	}
 
-
 	public JButton getAtras() {
 		return botonSalir;
 	}
-
-
 }

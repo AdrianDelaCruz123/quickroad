@@ -66,9 +66,15 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", direccion=" + direccion
-				+ ", contraseña=" + contraseña + ", tipo=" + tipo + ", estado="+estado;
+	    return "👤 Usuario\n"
+	         + "  • Nombre: " + nombre + "\n"
+	         + "  • DNI: " + dni + "\n"
+	         + "  • Teléfono: " + telefono + "\n"
+	         + "  • Dirección: " + direccion + "\n"
+	         + "  • Tipo de usuario: " + tipo + "\n"
+	         + "  • Estado: " + estado;
 	}
+
 	
     
 	

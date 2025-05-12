@@ -1,19 +1,14 @@
 package vistas;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
-import Clases.Camion;
 import Clases.Usuario;
 
 public class VistaUsuarios extends JFrame {
@@ -24,51 +19,70 @@ public class VistaUsuarios extends JFrame {
 	private JButton eliminar;
 	private JButton bloquear;
 	private JButton desbloquear;
+	private JButton botonBuscar;
+	private JTextField busqueda;
 	private String usuario;
 	private JList<Usuario> JlistProductos;
 	private DefaultListModel<Usuario> modeloLista;
 
 	public VistaUsuarios() {
-		setSize(600, 400);
+		setTitle("Gestión de Usuarios");
+		setSize(650, 450);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
-		contentPane.setLayout(new BorderLayout());
+		contentPane = new JPanel(new BorderLayout(10, 10));
+		contentPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 		setContentPane(contentPane);
 
-		ArrayList<Usuario> listaUsuarios = repositorios.MostrarUsuarios.MostrarPaquetes();
+		JPanel panelBuscador = new JPanel(new BorderLayout(5, 5));
+		busqueda = new JTextField();
+		busqueda.setPreferredSize(new Dimension(200, 30));
+		botonBuscar = new JButton("Buscar");
+		panelBuscador.add(busqueda, BorderLayout.CENTER);
+		panelBuscador.add(botonBuscar, BorderLayout.EAST);
+		panelBuscador.setBorder(new TitledBorder("Buscar usuario"));
+		contentPane.add(panelBuscador, BorderLayout.NORTH);
 
-		modeloLista = new DefaultListModel<Usuario>();
+		ArrayList<Usuario> listaUsuarios = repositorios.MostrarUsuarios.MostrarPaquetes();
+		modeloLista = new DefaultListModel<>();
 
 		for (Usuario usuario : listaUsuarios) {
 			modeloLista.addElement(usuario);
 		}
 
-		JlistProductos = new JList(modeloLista);
-		contentPane.add(new JScrollPane(JlistProductos), BorderLayout.CENTER);
+		JlistProductos = new JList<>(modeloLista);
+		JlistProductos.setVisibleRowCount(10);
+		JlistProductos.setFixedCellHeight(25);
+		JlistProductos.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		JPanel panel = new JPanel(new GridLayout(2, 2, 5, 5));
-		
+		JScrollPane scrollPane = new JScrollPane(JlistProductos);
+		scrollPane.setBorder(new TitledBorder("Lista de usuarios"));
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+
+		JPanel panelBotones = new JPanel();
+		panelBotones.setLayout(new GridLayout(2, 2, 10, 10));
+		panelBotones.setBorder(new TitledBorder("Acciones"));
+
 		eliminar = new JButton("Eliminar");
-		panel.add(eliminar);
-		
 		bloquear = new JButton("Bloquear");
-		panel.add(bloquear);
-		
 		desbloquear = new JButton("Desbloquear");
-		panel.add(desbloquear);
-		
 		botonSalir = new JButton("Salir");
-		panel.add(botonSalir);
-		
-		contentPane.add(panel, BorderLayout.SOUTH);
 
+		panelBotones.add(eliminar);
+		panelBotones.add(bloquear);
+		panelBotones.add(desbloquear);
+		panelBotones.add(botonSalir);
+
+		contentPane.add(panelBotones, BorderLayout.SOUTH);
 	}
 
 	public DefaultListModel<Usuario> getModeloLista() {
 		return modeloLista;
+	}
+
+	public JTextField getBusqueda() {
+		return busqueda;
 	}
 
 	public JButton getEliminar() {
@@ -83,6 +97,9 @@ public class VistaUsuarios extends JFrame {
 		return desbloquear;
 	}
 
+	public JButton getBotonBusqueda() {
+		return botonBuscar;
+	}
 
 	public JButton getAtras() {
 		return botonSalir;
@@ -99,5 +116,4 @@ public class VistaUsuarios extends JFrame {
 	public void setJlistProductos(JList<Usuario> jlistProductos) {
 		JlistProductos = jlistProductos;
 	}
-
 }

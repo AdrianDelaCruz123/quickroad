@@ -43,6 +43,15 @@ public class ControlerVerificarDni {
                 c.iniciar();
             }
         });
+		this.vista.getAtras().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vista.dispose();
+            	VistaLogin v = new VistaLogin(); 
+				ControlerLogin c=new ControlerLogin(v);
+				c.iniciar();
+            }
+        });
     }
 
 

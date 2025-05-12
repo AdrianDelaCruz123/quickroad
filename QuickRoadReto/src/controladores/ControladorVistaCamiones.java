@@ -2,10 +2,14 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import Clases.Camion;
+import Clases.Paquete;
+import Clases.Usuario;
 import repositorios.Sesion;
 import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaCamion;
@@ -35,6 +39,21 @@ public class ControladorVistaCamiones {
 				VistaCamion v = new VistaCamion(camionSeleccionado);
 				ControladorVistaCamion c = new ControladorVistaCamion(v);
 				c.iniciar();
+			}
+		});
+		
+		this.vista.getBotonBuscar().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String textoBusqueda = ControladorVistaCamiones.this.vista.getTextFieldBusqueda().getText();
+				DefaultListModel<Camion> modeloLista = ControladorVistaCamiones.this.vista.getModeloLista();
+				ControladorVistaCamiones.this.vista.getModeloLista().clear();
+				ArrayList<Camion> lista = repositorios.MostrarCamion.buscarPorNombre(textoBusqueda);
+				for (Camion c : lista) {
+					modeloLista.addElement(c);
+				}
+
 			}
 		});
 	}

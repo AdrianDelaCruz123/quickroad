@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
 
 import repositorios.RepositorioAñadirUsuario;
 import vistas.VistaAñadirPaquete;
@@ -59,6 +62,7 @@ public class ControladorAñadirPaquete {
             	
             }
         });
+		
 		this.vista.getAtras().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -79,8 +79,13 @@ public class Paquete {
 
 	@Override
 	public String toString() {
-		return "idPaquete=" + idPaquete + ", decripcion=" + decripcion;
+	    return "📦 Paquete #" + idPaquete + "\n"
+	         + "  • Descripción: " + decripcion + "\n"
+	         + "  • Fecha de recogida: " + fecharecogida + "\n"
+	         + "  • Fecha de entrega: " + fechaEntrega + "\n"
+	         + "  • Estado: " + estado;
 	}
+
 	
 	
 	

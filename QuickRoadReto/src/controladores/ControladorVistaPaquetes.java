@@ -2,7 +2,9 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import Clases.Camion;
@@ -47,6 +49,20 @@ public class ControladorVistaPaquetes {
 				VistaPaquete v = new VistaPaquete(paquetes);
 				ControladorVistaPaquete c = new ControladorVistaPaquete(v);
 				c.iniciar();
+			}
+		});
+		this.vista.getBotonBuscar().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String textoBusqueda = ControladorVistaPaquetes.this.vista.getTextFieldBusqueda().getText();
+				DefaultListModel<Paquete> modeloLista = ControladorVistaPaquetes.this.vista.getModeloLista();
+				ControladorVistaPaquetes.this.vista.getModeloLista().clear();
+				ArrayList<Paquete> lista = repositorios.MostrarPaquetes.buscarPorNombre(textoBusqueda);
+				for (Paquete c : lista) {
+					modeloLista.addElement(c);
+				}
+
 			}
 		});
 	}

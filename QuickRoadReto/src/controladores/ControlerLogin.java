@@ -25,7 +25,7 @@ public class ControlerLogin {
        
 
         // Añadir el evento de botón
-        this.vista.getBtnRegistrar().addActionListener(new ActionListener() {
+        this.vista.getIniciarSesion().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                vista.dispose();

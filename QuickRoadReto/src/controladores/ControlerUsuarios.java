@@ -2,7 +2,9 @@ package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import Clases.Camion;
@@ -64,6 +66,21 @@ public class ControlerUsuarios {
 		            JOptionPane.showMessageDialog(vista, "Selecciona un usuario primero.");
 		        }
 		    }
+		});
+		
+		this.vista.getBotonBusqueda().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String textoBusqueda = ControlerUsuarios.this.vista.getBusqueda().getText();
+				DefaultListModel<Usuario> modeloLista = ControlerUsuarios.this.vista.getModeloLista();
+				ControlerUsuarios.this.vista.getModeloLista().clear();
+				ArrayList<Usuario> lista = repositorios.MostrarUsuarios.buscarPorNombre(textoBusqueda);
+				for (Usuario u : lista) {
+					modeloLista.addElement(u);
+				}
+
+			}
 		});
 
 		this.vista.getEliminar().addActionListener(new ActionListener() {

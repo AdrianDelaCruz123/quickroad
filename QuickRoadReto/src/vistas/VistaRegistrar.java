@@ -1,8 +1,9 @@
 package vistas;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,69 +22,96 @@ public class VistaRegistrar extends JFrame {
     private JPasswordField password;
     private JTextField apellido;
     private JTextField dni;
-    private JTextField telefono;    
+    private JTextField telefono;
     private JTextField direccion;
     private JTextField tipo;
-    private JLabel lblErrorTipo; 
-	
-	
-	
+    private JLabel lblErrorTipo;
+
     public VistaRegistrar() {
+        setTitle("Registro de Usuario");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 500);
+        setResizable(false);
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+        contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
         setContentPane(contentPane);
-        contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
+        contentPane.setLayout(new GridLayout(11, 2, 10, 10));  
 
-        JPanel panel = new JPanel(new GridLayout(10, 2, 5, 5));
-      
-        
-        panel.add(new JLabel("Usuario"));
+        JLabel lblUsuario = new JLabel("Usuario");
+        lblUsuario.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblUsuario);
+
         usuario = new JTextField(10);
-        panel.add(usuario);
-        
-        panel.add(new JLabel("Apellido"));
-        apellido = new JTextField(10);  
-        panel.add(apellido);
-        
-        panel.add(new JLabel("Dni"));
-        dni = new JTextField(10);  
-        panel.add(dni);
+        usuario.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(usuario);
 
-        panel.add(new JLabel("Telefono"));
-        telefono = new JTextField(10);  
-        panel.add(telefono);
-        
-        panel.add(new JLabel("Direccion"));
-        direccion = new JTextField(10); 
-        panel.add(direccion);
-        
-        panel.add(new JLabel("Tipo"));
-        tipo = new JTextField(10);  
-        panel.add(tipo);
+        JLabel lblApellido = new JLabel("Apellido");
+        lblApellido.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblApellido);
 
-        panel.add(new JLabel("Contraseña"));
+        apellido = new JTextField(10);
+        apellido.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(apellido);
+
+        JLabel lblDni = new JLabel("DNI");
+        lblDni.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblDni);
+
+        dni = new JTextField(10);
+        dni.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(dni);
+
+        JLabel lblTelefono = new JLabel("Teléfono");
+        lblTelefono.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblTelefono);
+
+        telefono = new JTextField(10);
+        telefono.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(telefono);
+
+        JLabel lblDireccion = new JLabel("Dirección");
+        lblDireccion.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblDireccion);
+
+        direccion = new JTextField(10);
+        direccion.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(direccion);
+
+        JLabel lblTipo = new JLabel("Tipo");
+        lblTipo.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblTipo);
+
+        tipo = new JTextField(10);
+        tipo.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(tipo);
+
+        JLabel lblContraseña = new JLabel("Contraseña");
+        lblContraseña.setFont(new Font("Arial", Font.BOLD, 14));
+        contentPane.add(lblContraseña);
+
         password = new JPasswordField(10);
-        panel.add(password);
-        
+        password.setFont(new Font("Arial", Font.PLAIN, 14));
+        contentPane.add(password);
+
         lblErrorTipo = new JLabel(""); 
-        lblErrorTipo.setForeground(Color.RED); 
-        panel.add(lblErrorTipo);
+        lblErrorTipo.setFont(new Font("Arial", Font.PLAIN, 12));
+        lblErrorTipo.setForeground(Color.RED);
+        contentPane.add(lblErrorTipo);
 
-        panel.add(new JLabel("")); 
         registrar = new JButton("Registrar");
-        panel.add(registrar);
-        
-        panel.add(new JLabel("")); // Celda vacía para mantener alineación
-		atras = new JButton("Atras");
-		panel.add(atras);
-        
-		contentPane.add(panel);
+        registrar.setFont(new Font("Arial", Font.BOLD, 14));
+        registrar.setBackground(new Color(34, 139, 34));  
+        registrar.setForeground(Color.WHITE);
+        registrar.setFocusPainted(false);
+        contentPane.add(registrar);
 
-    
+        atras = new JButton("Atrás");
+        atras.setFont(new Font("Arial", Font.BOLD, 14));
+        atras.setBackground(new Color(70, 130, 180));  
+        atras.setForeground(Color.WHITE);
+        atras.setFocusPainted(false);
+        contentPane.add(atras);
     }
 
     public void mostrarErrorTipo(String mensaje) {

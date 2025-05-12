@@ -20,6 +20,8 @@ public class VistaPaquete extends JFrame {
 	private JLabel fechaEntrega;
 	private JLabel estado;
 	private JButton botonSalir;
+	private JButton botonDescargar; // Nuevo botón
+
 
 	public VistaPaquete(Paquete paquete) {
 		super("Detalles del Paquete");
@@ -55,14 +57,19 @@ public class VistaPaquete extends JFrame {
 
 		contentPane.add(detallesPanel, BorderLayout.CENTER);
 
-		// Panel con botón
 		JPanel panelBoton = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		botonSalir = new JButton("Volver");
 		panelBoton.add(botonSalir);
+		botonDescargar = new JButton("Descargar");
+		panelBoton.add(botonDescargar);
 		contentPane.add(panelBoton, BorderLayout.SOUTH);
 	}
 
-	// Getters
+	
+	public JButton getBotonDescargar() {
+		return botonDescargar;
+	}
+
 	public JLabel getIdPaquete() {
 		return idPaquete;
 	}

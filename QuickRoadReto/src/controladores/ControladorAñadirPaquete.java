@@ -7,8 +7,10 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 import repositorios.RepositorioAñadirUsuario;
+import repositorios.Sesion;
 import vistas.VistaAñadirPaquete;
 import vistas.VistaLogin;
 import vistas.VistaPaquetes;
@@ -77,6 +79,15 @@ public class ControladorAñadirPaquete {
 	}
 
 	public void iniciar() {
-	   vista.setVisible(true);
+		if (!Sesion.estaLogueado()) {
+		    JOptionPane.showMessageDialog(null, "Debes iniciar sesión primero.");
+		    VistaLogin login = new VistaLogin(); 
+		    ControlerLogin c = new ControlerLogin(login);
+		    c.iniciar();
+		    vista.dispose();
+		    return;
+		}
+		
+		vista.setVisible(true);
 	}
 }

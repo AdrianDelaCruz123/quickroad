@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 
 
 public class RepositorioUsuario {
@@ -18,6 +20,15 @@ public class RepositorioUsuario {
 			preparedStatement.setString(2, password);
             
 			ResultSet resultSet = preparedStatement.executeQuery(); 
+			if (resultSet.next()) {  
+			    String bloqueado = resultSet.getString("estado");
+			    if ("BLOQUEADO".equalsIgnoreCase(bloqueado)) {
+			        JOptionPane.showMessageDialog(null, "El usuario " + usuario + " está bloqueado");
+			        return false;
+			    }
+			    return true;
+			}
+
 			if (resultSet.next()) {
 		         	return true;
 			}
@@ -51,7 +62,37 @@ public class RepositorioUsuario {
 		return false;
 	}
 		
-    
+	public static boolean bloquearUsuario(String dni) {
+        String query = "UPDATE camionero SET estado = 'BLOQUEADO' WHERE dni = ?";
+        try (PreparedStatement preparedStatement = ConectorBD.conexion.prepareStatement(query)) {
+        	preparedStatement.setString(1, dni);
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al bloquear usuario: " + e.getMessage());
+            return false;
+        }
+    }
+	public static boolean desbloquearUsuario(String dni) {
+        String query = "UPDATE camionero SET estado = 'DESBLOQUEADO' WHERE dni = ?";
+        try (PreparedStatement preparedStatement = ConectorBD.conexion.prepareStatement(query)) {
+        	preparedStatement.setString(1, dni);
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al desbloquear usuario: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean eliminarUsuario(String id) {
+        String query = "DELETE FROM camionero WHERE dni = ?";
+        try (PreparedStatement preparedStatement = ConectorBD.conexion.prepareStatement(query)) {
+        	preparedStatement.setString(1, id);
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al eliminar usuario: " + e.getMessage());
+            return false;
+        }
+    }
 
 }
 

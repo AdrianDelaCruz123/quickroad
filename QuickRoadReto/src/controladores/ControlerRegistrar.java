@@ -3,6 +3,8 @@ package controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import repositorios.RepositorioAñadirUsuario;
 import vistas.VistaLogin;
 import vistas.VistaRegistrar;
@@ -30,7 +32,26 @@ public class ControlerRegistrar {
          	        vista.mostrarErrorTipo("El tipo debe ser 'Admin' o 'Empleado'.");
          	        return; 
          	    }
+         	   
+         	   if (tel.length() != 9) {
+         	       JOptionPane.showMessageDialog(null, "El teléfono debe tener exactamente 9 números.");
+         	       return;
+         	   }
 
+         	   if (dni.length() != 9) {
+         	       JOptionPane.showMessageDialog(null, "El DNI debe tener 8 números y 1 letra.");
+         	       return;
+         	   }
+
+         	   String numerosDni = dni.substring(0, 8);
+         	   char letraDni = dni.charAt(8);
+
+         	   if (!numerosDni.matches("[0-9]+") || !Character.isLetter(letraDni)) {
+         	       JOptionPane.showMessageDialog(null, "El DNI debe tener 8 números seguidos de 1 letra.");
+         	       return;
+         	   }
+
+         	   
          	    RepositorioAñadirUsuario.añadirUsuario(usuario, pass, ape, dni, tel, dir, tipo);
             	vista.dispose();
             	VistaLogin v = new VistaLogin(); 

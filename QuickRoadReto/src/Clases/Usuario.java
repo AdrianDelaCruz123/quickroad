@@ -8,8 +8,10 @@ public class Usuario {
     private String direccion;
     private String contraseña;
     public String tipo;
+    public String estado;
+
 	
-	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, String tipo) {
+	public Usuario(String nombre, String dni, int telefono, String direccion, String contraseña, String tipo, String estado) {
 		super();
 		this.nombre = nombre;
 		this.dni = dni;
@@ -17,6 +19,7 @@ public class Usuario {
 		this.direccion = direccion;
 		this.contraseña = contraseña;
 		this.tipo = tipo;
+		this.estado = estado;
 	}
 	public String getNombre() {
 		return nombre;
@@ -54,10 +57,17 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	@Override
 	public String toString() {
 		return "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", direccion=" + direccion
-				+ ", contraseña=" + contraseña + ", tipo=" + tipo + "]";
+				+ ", contraseña=" + contraseña + ", tipo=" + tipo + ", estado="+estado;
 	}
 	
     

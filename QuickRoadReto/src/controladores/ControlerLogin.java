@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
 import repositorios.RepositorioUsuario;
 import repositorios.Sesion;
 import vistas.VerificarDni;
-import vistas.VistaBienvenidaAdmin;
 import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaDarDeBaja;
 import vistas.VistaLogin;
 import vistas.VistaRegistrar;
+import vistas.VistaUsuarios;
 
 
 public class ControlerLogin {
@@ -41,9 +41,9 @@ public class ControlerLogin {
                			c.iniciar();
                     }else {
 	            	   //vista admin
-	            	   VistaBienvenidaAdmin v = new VistaBienvenidaAdmin(); 
-	            	   ControlerBienvenidaAdmin c=new ControlerBienvenidaAdmin(v);
-               			c.iniciar();
+                    	VistaUsuarios v = new VistaUsuarios(); 
+                    	ControlerUsuarios c = new ControlerUsuarios(v);
+        				c.iniciar();
                }
                    
                    vista.dispose(); // Cerrar ventana de login

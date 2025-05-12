@@ -19,15 +19,16 @@ public class MostrarUsuarios {
 
 			while (rs.next()) {
 				String nombre = rs.getString("nombre");
-				String apellido = rs.getString("apellidos");
 				String dni = rs.getString("dni");
 				int telefono = rs.getInt("telefono");
 				String tipo = rs.getString("tipo");
 				String direccion= rs.getString("direccion");
 				String contraseña= rs.getString("contraseña");
+				String estado= rs.getString("estado");
+
 				
 
-				Usuario p = new Usuario(nombre, dni, telefono, direccion, contraseña,tipo);
+				Usuario p = new Usuario(nombre, dni, telefono, direccion, contraseña,tipo,estado);
 				listaUsuarios.add(p);
 			}
 		} catch (SQLException e) {

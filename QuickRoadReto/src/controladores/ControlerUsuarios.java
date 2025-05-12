@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import Clases.Camion;
+import Clases.Usuario;
 import repositorios.Sesion;
 import vistas.VistaBienvenidaEmpleado;
 import vistas.VistaCamion;
@@ -23,11 +24,69 @@ public class ControlerUsuarios {
             @Override
             public void actionPerformed(ActionEvent e) {
             	vista.dispose();
-            	VistaBienvenidaEmpleado v = new VistaBienvenidaEmpleado(); 
-            	ControlerBienvenidaEmpleado c = new ControlerBienvenidaEmpleado(v);
+    		    VistaLogin v = new VistaLogin(); 
+    		    ControlerLogin c = new ControlerLogin(v);
 				c.iniciar();
             }
         });
+		this.vista.getBloquear().addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        Usuario usuario = vista.getJlistProductos().getSelectedValue();
+		        if (usuario != null) {
+		            boolean exito = repositorios.RepositorioUsuario.bloquearUsuario(usuario.getDni());
+		            if (exito) {
+		                JOptionPane.showMessageDialog(vista, "Usuario bloqueado correctamente.");
+		                usuario.setEstado("BLOQUEADO");
+		                vista.getJlistProductos().repaint();
+		            } else {
+		                JOptionPane.showMessageDialog(vista, "Error al bloquear el usuario.");
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(vista, "Selecciona un usuario primero.");
+		        }
+		    }
+		});
+		this.vista.getDesbloquear().addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        Usuario usuario = vista.getJlistProductos().getSelectedValue();
+		        if (usuario != null) {
+		            boolean exito = repositorios.RepositorioUsuario.desbloquearUsuario(usuario.getDni());
+		            if (exito) {
+		                JOptionPane.showMessageDialog(vista, "Usuario desbloqueado correctamente.");
+		                usuario.setEstado("DESBLOQUEADO");
+		                vista.getJlistProductos().repaint();
+		            } else {
+		                JOptionPane.showMessageDialog(vista, "Error al desbloquear el usuario.");
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(vista, "Selecciona un usuario primero.");
+		        }
+		    }
+		});
+
+		this.vista.getEliminar().addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        Usuario usuario = vista.getJlistProductos().getSelectedValue();
+		        if (usuario != null) {
+		            int confirmacion = JOptionPane.showConfirmDialog(vista, "¿Seguro que quieres eliminar este usuario?");
+		            if (confirmacion == JOptionPane.YES_OPTION) {
+		                boolean exito = repositorios.RepositorioUsuario.eliminarUsuario(usuario.getDni());
+		                if (exito) {
+		                    JOptionPane.showMessageDialog(vista, "Usuario eliminado correctamente.");
+		                    vista.getModeloLista().removeElement(usuario);
+		                } else {
+		                    JOptionPane.showMessageDialog(vista, "Error al eliminar el usuario.");
+		                }
+		            }
+		        } else {
+		            JOptionPane.showMessageDialog(vista, "Selecciona un usuario primero.");
+		        }
+		    }
+		});
+
 	}
 
 	public void iniciar() {

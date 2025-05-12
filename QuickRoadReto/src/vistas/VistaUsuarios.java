@@ -20,9 +20,10 @@ public class VistaUsuarios extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField busqueda;
-	private JButton botonBuscar;
 	private JButton botonSalir;
+	private JButton eliminar;
+	private JButton bloquear;
+	private JButton desbloquear;
 	private String usuario;
 	private JList<Usuario> JlistProductos;
 	private DefaultListModel<Usuario> modeloLista;
@@ -48,9 +49,17 @@ public class VistaUsuarios extends JFrame {
 		JlistProductos = new JList(modeloLista);
 		contentPane.add(new JScrollPane(JlistProductos), BorderLayout.CENTER);
 
-		// aquí iran los botones que iran en la parte inferior de la vista
 		JPanel panel = new JPanel(new GridLayout(2, 2, 5, 5));
-
+		
+		eliminar = new JButton("Eliminar");
+		panel.add(eliminar);
+		
+		bloquear = new JButton("Bloquear");
+		panel.add(bloquear);
+		
+		desbloquear = new JButton("Desbloquear");
+		panel.add(desbloquear);
+		
 		botonSalir = new JButton("Salir");
 		panel.add(botonSalir);
 		
@@ -62,15 +71,18 @@ public class VistaUsuarios extends JFrame {
 		return modeloLista;
 	}
 
-	public JTextField getTextFieldBusqueda() {
-		return busqueda;
+	public JButton getEliminar() {
+		return eliminar;
 	}
 
-	public JButton getBtnBuscar() {
-		return botonBuscar;
+	public JButton getBloquear() {
+		return bloquear;
 	}
 
-	
+	public JButton getDesbloquear() {
+		return desbloquear;
+	}
+
 
 	public JButton getAtras() {
 		return botonSalir;

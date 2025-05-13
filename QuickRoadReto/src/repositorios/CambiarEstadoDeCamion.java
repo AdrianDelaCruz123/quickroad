@@ -7,7 +7,7 @@ public class CambiarEstadoDeCamion {
 	public static void  cambiarActivo( String matricula) {
 		
 		String[] partes = matricula.split(": ");
-		String valor = partes[1]; // Esto será "1234ABC"
+		String valor = partes[1]; 
 		String query = "UPDATE camion SET estado ='ACTIVO' WHERE matricula = ?";
 		try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 			sentencia.setString(1, valor);
@@ -27,7 +27,7 @@ public class CambiarEstadoDeCamion {
 	}
 	public static void  cambiarInactivo( String matricula) {
 		String[] partes = matricula.split(": ");
-		String valor = partes[1]; // Esto será "1234ABC"
+		String valor = partes[1]; 
 		String query = "UPDATE camion SET estado = 'INACTIVO' WHERE matricula = ?";
 		try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 			sentencia.setString(1, valor);
@@ -47,7 +47,7 @@ public class CambiarEstadoDeCamion {
 	}
 	public static void  cambiarMantenimiento( String matricula) {
 		String[] partes = matricula.split(": ");
-		String valor = partes[1]; // Esto será "1234ABC"
+		String valor = partes[1]; 
 		String query = "UPDATE camion SET estado = 'MANTENIMIENTO' WHERE matricula = ?";
 		try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 			sentencia.setString(1, valor);

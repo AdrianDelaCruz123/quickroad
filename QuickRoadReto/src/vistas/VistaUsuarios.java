@@ -20,6 +20,7 @@ public class VistaUsuarios extends JFrame {
 	private JButton bloquear;
 	private JButton desbloquear;
 	private JButton botonBuscar;
+	private JButton botonAñadirViaje; // NUEVO BOTÓN
 	private JTextField busqueda;
 	private String usuario;
 	private JList<Usuario> JlistProductos;
@@ -61,57 +62,38 @@ public class VistaUsuarios extends JFrame {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 
 		JPanel panelBotones = new JPanel();
-		panelBotones.setLayout(new GridLayout(2, 2, 10, 10));
+		panelBotones.setLayout(new GridLayout(3, 2, 10, 10)); // CAMBIADO A 3x2
 		panelBotones.setBorder(new TitledBorder("Acciones"));
 
 		eliminar = new JButton("Eliminar");
 		bloquear = new JButton("Bloquear");
 		desbloquear = new JButton("Desbloquear");
 		botonSalir = new JButton("Salir");
+		botonAñadirViaje = new JButton("Añadir Viaje"); // NUEVO BOTÓN
 
 		panelBotones.add(eliminar);
 		panelBotones.add(bloquear);
 		panelBotones.add(desbloquear);
 		panelBotones.add(botonSalir);
+		panelBotones.add(botonAñadirViaje); // NUEVA LÍNEA
 
 		contentPane.add(panelBotones, BorderLayout.SOUTH);
 	}
 
-	public DefaultListModel<Usuario> getModeloLista() {
-		return modeloLista;
-	}
+	// Getters para los botones
+	public JButton getEliminar() { return eliminar; }
+	public JButton getBloquear() { return bloquear; }
+	public JButton getDesbloquear() { return desbloquear; }
+	public JButton getBotonBusqueda() { return botonBuscar; }
+	public JButton getAtras() { return botonSalir; }
+	public JButton getBotonAñadirViaje() { return botonAñadirViaje; } // NUEVO GETTER
 
-	public JTextField getBusqueda() {
-		return busqueda;
-	}
+	public JTextField getBusqueda() { return busqueda; }
+	public String getUsuario() { return usuario; }
 
-	public JButton getEliminar() {
-		return eliminar;
-	}
+	public DefaultListModel<Usuario> getModeloLista() { return modeloLista; }
 
-	public JButton getBloquear() {
-		return bloquear;
-	}
-
-	public JButton getDesbloquear() {
-		return desbloquear;
-	}
-
-	public JButton getBotonBusqueda() {
-		return botonBuscar;
-	}
-
-	public JButton getAtras() {
-		return botonSalir;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public JList<Usuario> getJlistProductos() {
-		return JlistProductos;
-	}
+	public JList<Usuario> getJlistProductos() { return JlistProductos; }
 
 	public void setJlistProductos(JList<Usuario> jlistProductos) {
 		JlistProductos = jlistProductos;

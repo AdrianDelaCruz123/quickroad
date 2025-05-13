@@ -15,6 +15,7 @@ import vistas.VistaCamion;
 import vistas.VistaCamiones;
 import vistas.VistaLogin;
 import vistas.VistaUsuarios;
+import vistas.VistaViajes;
 
 public class ControlerUsuarios {
 	private VistaUsuarios vista;
@@ -103,6 +104,15 @@ public class ControlerUsuarios {
 		        }
 		    }
 		});
+		this.vista.getBotonAñadirViaje().addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        VistaViajes vistaViajes = new VistaViajes();
+		        ControladorViajes controlador = new ControladorViajes(vistaViajes);
+		        controlador.iniciar();
+		    }
+		});
+
 
 	}
 

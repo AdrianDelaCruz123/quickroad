@@ -23,27 +23,11 @@ public class VistaBienvenidaEmpleado extends JFrame {
 	private JButton btnNewButton;
 	private JButton registrarse;
 	private JButton verCamiones;
+	private JButton verViajes;
+
 	private JButton atras;
 
-	
-	public JButton getAtras() {
-    	return atras;
-    }
-	public JButton getCamiones() {
-    	return verCamiones;
-    }
-    public JButton getBtnRegistrar() {
-    	return btnNewButton;
-    }
-   
-   
 
-	public JButton getPaquete() {
-		return registrarse;
-	}
-public void setRegistrar(JButton registrar) {
-	this.registrarse = registrar;
-}
 	
 	public VistaBienvenidaEmpleado() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,7 +39,7 @@ public void setRegistrar(JButton registrar) {
 		setContentPane(contentPane);
 		contentPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		JPanel panel = new JPanel(new GridLayout(3, 2, 5, 5)); 
+		JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5)); 
 		
 		panel.add(new JLabel("")); 
 		registrarse = new JButton("Ver paquetes");
@@ -66,12 +50,37 @@ public void setRegistrar(JButton registrar) {
 		panel.add(verCamiones);
 		
 		panel.add(new JLabel("")); 
+		verViajes = new JButton("Ver viajes");
+		panel.add(verViajes);
+		
+		panel.add(new JLabel("")); 
 		atras = new JButton("Atras");
 		panel.add(atras);
 
 		contentPane.add(panel);
 		
 		
+	}
+	
+	public void setRegistrar(JButton registrar) {
+	this.registrarse = registrar;
+	}
+
+	public JButton getAtras() {
+    	return atras;
+    }
+	public JButton getCamiones() {
+    	return verCamiones;
+    }
+	public JButton getViajes() {
+    	return verViajes;
+    }
+    public JButton getBtnRegistrar() {
+    	return btnNewButton;
+    }
+
+	public JButton getPaquete() {
+		return registrarse;
 	}
 
 }

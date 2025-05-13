@@ -1,8 +1,8 @@
-ID: 1
-Descripción: Electrodoméstico pequeño
-Peso: 12.5
-Alto: 50.0
-Ancho: 40.0
-Fecha de recogida: 2024-05-10 08:00:00
-Fecha de entrega: 2024-05-11 12:00:00
+ID: 15
+Descripción: bbbb
+Peso: 20.0
+Alto: 20.0
+Ancho: 20.0
+Fecha de recogida: 2025-06-03 00:00:00
+Fecha de entrega: 2025-06-06 00:00:00
 Estado: ENTREGADO

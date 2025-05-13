@@ -13,6 +13,7 @@ import vistas.VistaCamiones;
 import vistas.VistaLogin;
 import vistas.VistaPaquete;
 import vistas.VistaPaquetes;
+import vistas.VistaViajesCamionero;
 
 public class ControlerBienvenidaEmpleado {
 	private VistaBienvenidaEmpleado vista;
@@ -44,6 +45,15 @@ public class ControlerBienvenidaEmpleado {
             	vista.dispose();
             	VistaCamiones v = new VistaCamiones(); 
             	ControladorVistaCamiones c = new ControladorVistaCamiones(v);
+				c.iniciar();
+            }
+        });
+		this.vista.getViajes().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	vista.dispose();
+            	VistaViajesCamionero v = new VistaViajesCamionero(); 
+            	ControladorViajesCamionero c = new ControladorViajesCamionero(v);
 				c.iniciar();
             }
         });

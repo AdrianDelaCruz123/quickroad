@@ -25,7 +25,7 @@ public class CambiarEstadoViaje {
 
 	}
 	public static boolean  cambiarFinalizado( String id) {
-		String query = "UPDATE viaje SET estado ='En_transito' WHERE id_viaje = ?";
+		String query = "UPDATE viaje SET estado ='Finalizado' WHERE id_viaje = ?";
 		try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 			sentencia.setString(1, id);
 	
@@ -44,7 +44,7 @@ public class CambiarEstadoViaje {
 
 	}
 	public static boolean  cambiarEnTransito( String id) {
-		String query = "UPDATE viaje SET estado ='Finalizado' WHERE id_viaje = ?";
+		String query = "UPDATE viaje SET estado ='En_transito' WHERE id_viaje = ?";
 		try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 			sentencia.setString(1, id);
 	

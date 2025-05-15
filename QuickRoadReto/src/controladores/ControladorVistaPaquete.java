@@ -47,7 +47,7 @@ public class ControladorVistaPaquete {
 		            JOptionPane.showMessageDialog(null, "Paquete descargado en: " + nom);
 		        } catch (IOException ex) {
 		            JOptionPane.showMessageDialog(null, "Error al descargar la informacion del paquete: " + ex.getMessage());
-		        }
+		        } 	
 		    }
 		});
 

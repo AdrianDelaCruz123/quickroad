@@ -27,19 +27,24 @@ public class ControlerRegistrar {
          	    String dir = vista.getTxtDireccion().getText();
          	    String tipo = vista.getTxtTipo().getText();
 
-         	    
+
+         	  if (pass.trim().isEmpty()) {
+       	        vista.mostrarErrorTipo("La contraseña no puede estar vacia.");
+         	      return;
+         	  }
+
          	    if (!tipo.equalsIgnoreCase("Admin") && !tipo.equalsIgnoreCase("Empleado")) {
-         	        vista.mostrarErrorTipo("El tipo debe ser 'Admin' o 'Empleado'.");
+         	        vista.mostrarErrorTipo("El tipo debe ser 'Admin' o 'Empleado'");
          	        return; 
          	    }
          	   
          	   if (tel.length() != 9) {
-         	       JOptionPane.showMessageDialog(null, "El teléfono debe tener exactamente 9 números.");
+          	        vista.mostrarErrorTipo("El telefono debe tener exactamente 9 numeros");
          	       return;
          	   }
 
          	   if (dni.length() != 9) {
-         	       JOptionPane.showMessageDialog(null, "El DNI debe tener 8 números y 1 letra.");
+          	        vista.mostrarErrorTipo("El DNI debe tener 8 numeros y una letra");
          	       return;
          	   }
 

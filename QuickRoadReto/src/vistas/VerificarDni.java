@@ -46,7 +46,7 @@ public class VerificarDni extends JFrame {
         insertar = new JButton("Registrar");
         panel.add(insertar);
         
-        panel.add(new JLabel("")); // Celda vacía para mantener alineación
+        panel.add(new JLabel("")); 
 		atras = new JButton("Atras");
 		panel.add(atras);
         

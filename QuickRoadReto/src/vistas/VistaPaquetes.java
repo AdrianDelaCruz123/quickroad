@@ -33,7 +33,6 @@ public class VistaPaquetes extends JFrame {
 		contentPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 		setContentPane(contentPane);
 
-		// Panel de búsqueda
 		JPanel panelBuscador = new JPanel(new BorderLayout(10, 10));
 		busqueda = new JTextField();
 		busqueda.setPreferredSize(new Dimension(200, 30));
@@ -43,7 +42,6 @@ public class VistaPaquetes extends JFrame {
 		panelBuscador.setBorder(new TitledBorder("Buscar paquete"));
 		contentPane.add(panelBuscador, BorderLayout.NORTH);
 
-		// Lista de paquetes
 		ArrayList<Paquete> listaPaquete = repositorios.MostrarPaquetes.MostrarPaquetes();
 		modeloLista = new DefaultListModel<>();
 
@@ -60,7 +58,6 @@ public class VistaPaquetes extends JFrame {
 		scrollPane.setBorder(new TitledBorder("Lista de paquetes"));
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 
-		// Panel de botones inferiores
 		JPanel panelInferior = new JPanel(new GridLayout(1, 2, 10, 10));
 		botonAñadirProductos = new JButton("Añadir productos");
 		botonSalir = new JButton("Salir");
@@ -70,7 +67,7 @@ public class VistaPaquetes extends JFrame {
 		contentPane.add(panelInferior, BorderLayout.SOUTH);
 	}
 
-	// Getters
+	
 	public DefaultListModel<Paquete> getModeloLista() {
 		return modeloLista;
 	}

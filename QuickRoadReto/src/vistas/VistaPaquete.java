@@ -20,7 +20,7 @@ public class VistaPaquete extends JFrame {
 	private JLabel fechaEntrega;
 	private JLabel estado;
 	private JButton botonSalir;
-	private JButton botonDescargar; // Nuevo botón
+	private JButton botonDescargar; 
 
 
 	public VistaPaquete(Paquete paquete) {

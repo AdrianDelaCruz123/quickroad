@@ -94,7 +94,7 @@ public class VistaAñadirPaquete extends JFrame {
         añadir = new JButton("Añadir");
         panel.add(añadir);
         
-        panel.add(new JLabel("")); // Celda vacía para mantener alineación
+        panel.add(new JLabel("")); 
 		atras = new JButton("Atras");
 		panel.add(atras);
         

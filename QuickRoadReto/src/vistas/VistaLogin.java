@@ -49,15 +49,13 @@ public class VistaLogin extends JFrame {
         setResizable(false);
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));  // Borde alrededor del contenido
-        setContentPane(contentPane);
+        contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));  
         contentPane.setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);  // Espaciado entre los componentes
+        gbc.insets = new Insets(10, 10, 10, 10);  
         gbc.fill = GridBagConstraints.HORIZONTAL;
         
-        // Etiqueta de Usuario
         JLabel lblUsuario = new JLabel("Usuario");
         lblUsuario.setFont(new Font("Arial", Font.BOLD, 14));
         gbc.gridx = 0;
@@ -65,42 +63,37 @@ public class VistaLogin extends JFrame {
         gbc.gridwidth = 1;
         contentPane.add(lblUsuario, gbc);
 
-        // Campo de texto Usuario
         usuario = new JTextField(20);
         usuario.setFont(new Font("Arial", Font.PLAIN, 14));
         gbc.gridx = 1;
         gbc.gridy = 0;
         contentPane.add(usuario, gbc);
 
-        // Etiqueta de Contraseña
         JLabel lblContraseña = new JLabel("Contraseña");
         lblContraseña.setFont(new Font("Arial", Font.BOLD, 14));
         gbc.gridx = 0;
         gbc.gridy = 1;
         contentPane.add(lblContraseña, gbc);
 
-        // Campo de texto Contraseña
         password = new JPasswordField(20);
         password.setFont(new Font("Arial", Font.PLAIN, 14));
         gbc.gridx = 1;
         gbc.gridy = 1;
         contentPane.add(password, gbc);
 
-        // Botón Iniciar Sesión
         iniciarsesion = new JButton("Iniciar Sesión");
         iniciarsesion.setFont(new Font("Arial", Font.BOLD, 14));
-        iniciarsesion.setBackground(new Color(34, 139, 34));  // Color verde
+        iniciarsesion.setBackground(new Color(34, 139, 34));  
         iniciarsesion.setForeground(Color.WHITE);
-        iniciarsesion.setFocusPainted(false);  // Quitar borde al hacer clic
+        iniciarsesion.setFocusPainted(false);  
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
         contentPane.add(iniciarsesion, gbc);
 
-        // Botón Registrar
         registrar = new JButton("Registrar");
         registrar.setFont(new Font("Arial", Font.BOLD, 14));
-        registrar.setBackground(new Color(70, 130, 180));  // Color azul
+        registrar.setBackground(new Color(70, 130, 180));  
         registrar.setForeground(Color.WHITE);
         registrar.setFocusPainted(false);
         gbc.gridx = 0;
@@ -108,7 +101,6 @@ public class VistaLogin extends JFrame {
         gbc.gridwidth = 2;
         contentPane.add(registrar, gbc);
 
-        // Botón "He olvidado mi sesión"
         botonRenueve = new JButton("He olvidado mi sesión");
         botonRenueve.setFont(new Font("Arial", Font.PLAIN, 12));
         botonRenueve.setForeground(Color.BLUE);
@@ -118,7 +110,6 @@ public class VistaLogin extends JFrame {
         gbc.gridwidth = 2;
         contentPane.add(botonRenueve, gbc);
 
-        // Botón Dar de Baja
         botonBaja = new JButton("Dar de baja");
         botonBaja.setFont(new Font("Arial", Font.PLAIN, 12));
         botonBaja.setForeground(Color.RED);
@@ -128,8 +119,7 @@ public class VistaLogin extends JFrame {
         gbc.gridwidth = 2;
         contentPane.add(botonBaja, gbc);
 
-        // Fondo y bordes
-        contentPane.setBackground(new Color(255, 255, 255));  // Fondo blanco
+        contentPane.setBackground(new Color(255, 255, 255));  
     }
 
 }

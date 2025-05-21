@@ -76,7 +76,7 @@ public class VistaActualizarDatos extends JFrame {
         actualizar = new JButton("Actualizar");
         panel.add(actualizar);
         
-        panel.add(new JLabel("")); // Celda vacía para mantener alineación
+        panel.add(new JLabel("")); 
 		atras = new JButton("Atras");
 		panel.add(atras);
         

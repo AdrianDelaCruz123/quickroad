@@ -8,29 +8,17 @@ public class Sesion {
         usuarioSesion = usuario;
     }
 
-    
-    
     public static String getUsuarioActual() {
         return usuarioSesion;
     }
     
-    
     public static boolean estaLogueado() {
         return usuarioSesion != null;
     }
-    
     
     public static void cerrarSesion() {
     	usuarioSesion = null;
     }
 }
 
-
-//Esto se pegara en todas las ventanas en el que habra un usuario logueado
-//if (!Sesion.estaLogueado()) {
-    //JOptionPane.showMessageDialog(null, "Debes iniciar sesión primero.");
-    //new VistaLogin().setVisible(true);
-    //dispose(); 
-    //return;
-//}
 

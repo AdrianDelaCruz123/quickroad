@@ -1,5 +1,9 @@
 package Clases;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 public class Viaje {
     private String id;
     private String origen;
@@ -23,43 +27,29 @@ public class Viaje {
 		return id;
 	}
 
-
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 
 	public String getOrigen() {
 		return origen;
 	}
 
-
-
 	public void setOrigen(String origen) {
 		this.origen = origen;
 	}
-
-
 
 	public String getDestino() {
 		return destino;
 	}
 
-
-
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
 
-
-
 	public String getFechaSalida() {
 		return fechaSalida;
 	}
-
-
 
 	public void setFechaSalida(String fecha) {
 		this.fechaSalida = fecha;
@@ -67,8 +57,6 @@ public class Viaje {
 	public String getFechaLlegada() {
 		return fechaLlegada;
 	}
-
-
 
 	public void setFechaLlegada(String fecha) {
 		this.fechaLlegada = fecha;
@@ -92,4 +80,20 @@ public class Viaje {
     public String toString() {
         return id + " | " + origen + " → " + destino + " | " + estado;
     }
+	
+	public boolean esViajeFinalizado() {
+	    return "Finalizado".equalsIgnoreCase(estado);
+	}
+	public boolean esViajeEnCurso() {
+	    return "En_transito".equalsIgnoreCase(estado);
+	}
+	public void iniciarViaje() {
+	    this.estado = "En_transito";
+	}
+	public void finalizarViaje() {
+	    this.estado = "Finalizado";
+	}
+
+
+
 }

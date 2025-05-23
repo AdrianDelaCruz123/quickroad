@@ -89,7 +89,7 @@ public class ControlerUsuarios {
 		    public void actionPerformed(ActionEvent e) {
 		        Usuario usuario = vista.getJlistProductos().getSelectedValue();
 		        if (usuario != null) {
-		            int confirmacion = JOptionPane.showConfirmDialog(vista, "¿Seguro que quieres eliminar este usuario?");
+		            int confirmacion = JOptionPane.showConfirmDialog(vista, "Seguro que quieres eliminar este usuario");
 		            if (confirmacion == JOptionPane.YES_OPTION) {
 		                boolean exito = repositorios.RepositorioUsuario.eliminarUsuario(usuario.getDni());
 		                if (exito) {

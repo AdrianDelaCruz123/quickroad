@@ -24,29 +24,26 @@ public class ControlerLogin {
         this.vista = vista;
        
 
-        // Añadir el evento de botón
         this.vista.getIniciarSesion().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                vista.dispose();
                if (RepositorioUsuario.verificarUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
-                   Sesion.setUsuarioActual(vista.getTxtUsuario().getText()); // Iniciar sesión
+                   Sesion.setUsuarioActual(vista.getTxtUsuario().getText());
                    
                    JOptionPane.showMessageDialog(null, "Bienvenido " + vista.getTxtUsuario().getText());
                    
                     if (!RepositorioUsuario.verificarEstadoUsuario(vista.getTxtUsuario().getText(), vista.getTxtContraseña().getText())) {
-	            	   //vista empleado
 	            	   VistaBienvenidaEmpleado v = new VistaBienvenidaEmpleado(); 
 	            	   ControlerBienvenidaEmpleado c=new ControlerBienvenidaEmpleado(v);
                			c.iniciar();
                     }else {
-	            	   //vista admin
                     	VistaUsuarios v = new VistaUsuarios(); 
                     	ControlerUsuarios c = new ControlerUsuarios(v);
         				c.iniciar();
                }
                    
-                   vista.dispose(); // Cerrar ventana de login
+                   vista.dispose(); 
                } else {
                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
                    

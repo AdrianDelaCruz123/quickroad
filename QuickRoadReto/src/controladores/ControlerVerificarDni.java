@@ -35,21 +35,25 @@ public class ControlerVerificarDni {
                     vista.mostrarErrorTipo("DNI no encontrado.");
                     return; 
                 }
-
-                RepositorioEliminarUsuario.eliminarUsuario(dni);
-                vista.dispose();
-                VistaActualizarDatos v = new VistaActualizarDatos(); 
-                ControlerActualizarDatos c = new ControlerActualizarDatos(v);
-                c.iniciar();
+                
+                if(RepositorioEliminarUsuario.eliminarUsuario(dni)) {
+                	vista.dispose();
+                	VistaActualizarDatos v = new VistaActualizarDatos(); 
+                	ControlerActualizarDatos c = new ControlerActualizarDatos(v);
+                	c.iniciar();
+                }else {
+                	vista.dispose();
+                	VistaLogin v = new VistaLogin(); 
+                	ControlerLogin c=new ControlerLogin(v);
+                	c.iniciar();
+                }
+                
             }
         });
 		this.vista.getAtras().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vista.dispose();
-            	VistaLogin v = new VistaLogin(); 
-				ControlerLogin c=new ControlerLogin(v);
-				c.iniciar();
+                
             }
         });
     }

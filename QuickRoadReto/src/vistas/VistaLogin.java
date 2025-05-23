@@ -52,74 +52,76 @@ public class VistaLogin extends JFrame {
         contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));  
         contentPane.setLayout(new GridBagLayout());
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);  
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        GridBagConstraints grid = new GridBagConstraints();
+        grid.insets = new Insets(10, 10, 10, 10);  
+        grid.fill = GridBagConstraints.HORIZONTAL;
         
-        JLabel lblUsuario = new JLabel("Usuario");
-        lblUsuario.setFont(new Font("Arial", Font.BOLD, 14));
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1;
-        contentPane.add(lblUsuario, gbc);
+        JLabel Usuario = new JLabel("Usuario");
+        Usuario.setFont(new Font("Arial", Font.BOLD, 14));
+        grid.gridx = 0;
+        grid.gridy = 0;
+        grid.gridwidth = 1;
+        contentPane.add(Usuario, grid);
 
         usuario = new JTextField(20);
         usuario.setFont(new Font("Arial", Font.PLAIN, 14));
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        contentPane.add(usuario, gbc);
+        grid.gridx = 1;
+        grid.gridy = 0;
+        contentPane.add(usuario, grid);
 
         JLabel lblContraseña = new JLabel("Contraseña");
         lblContraseña.setFont(new Font("Arial", Font.BOLD, 14));
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        contentPane.add(lblContraseña, gbc);
+        grid.gridx = 0;
+        grid.gridy = 1;
+        contentPane.add(lblContraseña, grid);
 
         password = new JPasswordField(20);
         password.setFont(new Font("Arial", Font.PLAIN, 14));
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        contentPane.add(password, gbc);
+        grid.gridx = 1;
+        grid.gridy = 1;
+        contentPane.add(password, grid);
 
         iniciarsesion = new JButton("Iniciar Sesión");
         iniciarsesion.setFont(new Font("Arial", Font.BOLD, 14));
         iniciarsesion.setBackground(new Color(34, 139, 34));  
         iniciarsesion.setForeground(Color.WHITE);
         iniciarsesion.setFocusPainted(false);  
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        contentPane.add(iniciarsesion, gbc);
+        grid.gridx = 0;
+        grid.gridy = 2;
+        grid.gridwidth = 2;
+        contentPane.add(iniciarsesion, grid);
 
         registrar = new JButton("Registrar");
         registrar.setFont(new Font("Arial", Font.BOLD, 14));
         registrar.setBackground(new Color(70, 130, 180));  
         registrar.setForeground(Color.WHITE);
         registrar.setFocusPainted(false);
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 2;
-        contentPane.add(registrar, gbc);
+        grid.gridx = 0;
+        grid.gridy = 3;
+        grid.gridwidth = 2;
+        contentPane.add(registrar, grid);
 
         botonRenueve = new JButton("He olvidado mi sesión");
         botonRenueve.setFont(new Font("Arial", Font.PLAIN, 12));
         botonRenueve.setForeground(Color.BLUE);
         botonRenueve.setFocusPainted(false);
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 2;
-        contentPane.add(botonRenueve, gbc);
+        grid.gridx = 0;
+        grid.gridy = 4;
+        grid.gridwidth = 2;
+        contentPane.add(botonRenueve, grid);
 
         botonBaja = new JButton("Dar de baja");
         botonBaja.setFont(new Font("Arial", Font.PLAIN, 12));
         botonBaja.setForeground(Color.RED);
         botonBaja.setFocusPainted(false);
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.gridwidth = 2;
-        contentPane.add(botonBaja, gbc);
+        grid.gridx = 0;
+        grid.gridy = 5;
+        grid.gridwidth = 2;
+        contentPane.add(botonBaja, grid);
 
-        contentPane.setBackground(new Color(255, 255, 255));  
+        contentPane.setBackground(new Color(255, 255, 255)); 
+        setContentPane(contentPane);
+
     }
 
 }

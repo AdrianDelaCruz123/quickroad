@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class RepositorioAñadirUsuario {
 		public static void  añadirUsuario(String usuario, String contraseña,String apellido, String dni,String telefono, String direccion,String tipo) {
-			String query = "INSERT INTO camionero ( nombre, apellidos, dni, telefono, direccion, contraseña, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO camionero ( nombre, apellidos, dni, telefono, direccion, contraseña, tipo, estado) VALUES (?, ?, ?, ?, ?, ?, ?, 'DESBLOQUEADO')";
 			try (PreparedStatement sentencia = ConectorBD.conexion.prepareStatement(query)){
 				sentencia.setString(1, usuario);
 				sentencia.setString(2, apellido);
